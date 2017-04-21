@@ -38,6 +38,25 @@ public class Inputs : MonoBehaviour {
                 _x = Input.GetAxis(InputAxes.CON_MOVEHORIZONTAL);
                 _movement.Move(new Vector2(_x,0));
             }
+            else
+            {
+                _movement.Move(new Vector2(0,0));
+            }
+
+            if (Input.GetButtonDown(InputAxes.CON_JUMP))
+            {
+                //Jump
+            }
+        }
+
+        if (Input.GetButton(InputAxes.CON_CROUCH))
+        {
+            //Crouch
+        }
+
+        if (Input.GetButton(InputAxes.CON_FIRE))
+        {
+            //Fire
         }
     }
 }

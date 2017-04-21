@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Move(Vector2 moveDir)
     {
-        Debug.Log("kek");
         _rigidBody.MovePosition(_rigidBody.position + moveDir * _playerEntity.MovementSpeed * Time.deltaTime);
     }
 }
