@@ -5,8 +5,10 @@ using UnityEngine;
 public class Entity : MonoBehaviour {
 
     [SerializeField]private float _movementSpeed;
+    [SerializeField]private int _maxLives;
     [SerializeField]private int _maxHealth;
     [SerializeField]private int _baseDamage;
+    private int _currentLives;
     private int _currentDamage;
     private int _currentHealth;
 
@@ -14,6 +16,12 @@ public class Entity : MonoBehaviour {
     {
         get { return _movementSpeed; }
         set { _movementSpeed = value; }
+    }
+
+    public int MaxLives
+    {
+        get { return _maxLives; }
+        set { _maxLives = value; }
     }
 
     public int Health
@@ -26,6 +34,12 @@ public class Entity : MonoBehaviour {
     {
         get { return _baseDamage; }
         set { _baseDamage = value; }
+    }
+
+    public int CurrentLives
+    {
+        get { return _currentLives; }
+        set { _currentLives = value; }
     }
 
     public int CurrentDamage
