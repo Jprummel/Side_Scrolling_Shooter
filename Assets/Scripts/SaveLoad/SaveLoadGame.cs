@@ -18,10 +18,13 @@ public class SaveLoadGame : MonoBehaviour {
 
         SaveData saveData = new SaveData();
 
-        saveData.PlayerLevel        = SaveInformation.PlayerLevel;
-        saveData.currentXP          = SaveInformation.CurrentXP;
-        saveData.requiredXP         = SaveInformation.RequiredXP;
-        saveData.UnlockedStage      = SaveInformation.UnlockedStage;
+        saveData.PlayerLevel        = GameInformation.PlayerLevel;
+        saveData.currentXP          = GameInformation.CurrentXP;
+        saveData.requiredXP         = GameInformation.RequiredXP;
+        saveData.UnlockedStage      = GameInformation.UnlockedStage;
+
+        saveData.HighscoreLevel1 = GameInformation.HighscoreLevel1;
+        saveData.HighscoreLevel2 = GameInformation.HighscoreLevel2;
 
         bf.Serialize(file, saveData);
         file.Close();
@@ -36,10 +39,13 @@ public class SaveLoadGame : MonoBehaviour {
 
             SaveData saveData               = (SaveData)bf.Deserialize(file);
 
-            SaveInformation.PlayerLevel     = saveData.PlayerLevel;
-            SaveInformation.CurrentXP       = saveData.currentXP;
-            SaveInformation.RequiredXP      = saveData.requiredXP;
-            SaveInformation.UnlockedStage   = saveData.UnlockedStage;
+            GameInformation.PlayerLevel     = saveData.PlayerLevel;
+            GameInformation.CurrentXP       = saveData.currentXP;
+            GameInformation.RequiredXP      = saveData.requiredXP;
+            GameInformation.UnlockedStage   = saveData.UnlockedStage;
+
+            GameInformation.HighscoreLevel1 = saveData.HighscoreLevel1;
+            GameInformation.HighscoreLevel2 = saveData.HighscoreLevel2;
 
             file.Close();
         }
@@ -48,8 +54,13 @@ public class SaveLoadGame : MonoBehaviour {
 
 public class SaveData
 {
+    //Player progression
     public int PlayerLevel;
     public int currentXP;
     public int requiredXP;
     public int UnlockedStage;
+
+    //Highscores
+    public int HighscoreLevel1;
+    public int HighscoreLevel2;
 }
