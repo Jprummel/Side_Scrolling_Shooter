@@ -19,9 +19,8 @@ public class SaveLoadGame : MonoBehaviour {
         SaveData saveData = new SaveData();
 
         saveData.PlayerLevel        = SaveInformation.PlayerLevel;
-        saveData.PlayerMoveSpeed    = SaveInformation.PlayerMoveSpeed;
-        saveData.PlayerMaxHealth    = SaveInformation.PlayerMaxHealth;
-        saveData.PlayerDamage       = SaveInformation.PlayerDamage;
+        saveData.currentXP          = SaveInformation.CurrentXP;
+        saveData.requiredXP         = SaveInformation.RequiredXP;
         saveData.UnlockedStage      = SaveInformation.UnlockedStage;
 
         bf.Serialize(file, saveData);
@@ -37,11 +36,10 @@ public class SaveLoadGame : MonoBehaviour {
 
             SaveData saveData               = (SaveData)bf.Deserialize(file);
 
-            SaveInformation.PlayerLevel = saveData.PlayerLevel;
-            SaveInformation.PlayerMoveSpeed = saveData.PlayerMoveSpeed;
-            SaveInformation.PlayerMaxHealth = saveData.PlayerMaxHealth;
-            SaveInformation.PlayerDamage = saveData.PlayerDamage;
-            SaveInformation.UnlockedStage = saveData.UnlockedStage;
+            SaveInformation.PlayerLevel     = saveData.PlayerLevel;
+            SaveInformation.CurrentXP       = saveData.currentXP;
+            SaveInformation.RequiredXP      = saveData.requiredXP;
+            SaveInformation.UnlockedStage   = saveData.UnlockedStage;
 
             file.Close();
         }
@@ -51,8 +49,7 @@ public class SaveLoadGame : MonoBehaviour {
 public class SaveData
 {
     public int PlayerLevel;
-    public float PlayerMoveSpeed;
-    public int PlayerMaxHealth;
-    public int PlayerDamage;
+    public int currentXP;
+    public int requiredXP;
     public int UnlockedStage;
 }

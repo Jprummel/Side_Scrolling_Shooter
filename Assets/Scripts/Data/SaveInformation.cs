@@ -5,8 +5,7 @@ using UnityEngine;
 public class SaveInformation : MonoBehaviour {
 
     public static int PlayerLevel;
-    public static float PlayerMoveSpeed;
-    public static int PlayerMaxHealth;
-    public static int PlayerDamage;
+    public static int CurrentXP;
+    public static int RequiredXP;
     public static int UnlockedStage;
 }
