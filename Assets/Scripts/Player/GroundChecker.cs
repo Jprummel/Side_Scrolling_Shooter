@@ -7,12 +7,12 @@ public class GroundChecker : MonoBehaviour {
     PlayerMovement _playerMovement;
 
 	void Start () {
-        _playerMovement = GetComponentInParent<PlayerMovement>();
+        _playerMovement = GetComponent<PlayerMovement>();
 	}
 
-    void OnCollisionEnter2D()
+    void OnCollisionEnter2D(Collision2D coll)
     {
-
+        _playerMovement.CanJump = true;
     }
 	
 }

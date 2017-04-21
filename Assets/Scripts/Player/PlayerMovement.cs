@@ -8,9 +8,9 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D _rigidBody;
     private bool _canMove;
     private Vector2 _moveDir;
-    private bool _jump;
+    private bool _jump = true;
 
-    public bool Jump
+    public bool CanJump
     {
         set { _jump = value; }
     }
