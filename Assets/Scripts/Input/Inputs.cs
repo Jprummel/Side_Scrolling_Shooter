@@ -26,6 +26,20 @@ public class Inputs : MonoBehaviour {
                 _x = Input.GetAxis(InputAxes.PC_MOVEHORIZONTAL);
                 _movement.Move(new Vector2(_x,0));
             }
+            else
+            {
+                _movement.Move(new Vector2(0, 0));
+            }
+
+            if (Input.GetButtonDown(InputAxes.PC_JUMP))
+            {
+                _movement.Jump();
+            }
+        }
+
+        if (Input.GetButton(InputAxes.PC_ATTACK))
+        {
+            Debug.Log("attack");
         }
     }
 
@@ -40,7 +54,7 @@ public class Inputs : MonoBehaviour {
             }
             else
             {
-                _movement.Move(new Vector2(0,0));
+                //_movement.Move(new Vector2(0,0));
             }
 
             if (Input.GetButtonDown(InputAxes.CON_JUMP))
@@ -54,7 +68,7 @@ public class Inputs : MonoBehaviour {
             //Crouch
         }
 
-        if (Input.GetButton(InputAxes.CON_FIRE))
+        if (Input.GetButton(InputAxes.CON_ATTACK))
         {
             //Fire
         }

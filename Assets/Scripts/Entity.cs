@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour {
 
+    [SerializeField]private float _jumpPower;
     [SerializeField]private float _movementSpeed;
     [SerializeField]private int _maxLives;
     [SerializeField]private int _maxHealth;
@@ -11,6 +12,12 @@ public class Entity : MonoBehaviour {
     private int _currentLives;
     private int _currentDamage;
     private int _currentHealth;
+
+    public float JumpPower
+    {
+        get { return _jumpPower; }
+        set { _jumpPower = value; }
+    }
 
     public float MovementSpeed
     {

@@ -8,6 +8,12 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody2D _rigidBody;
     private bool _canMove;
     private Vector2 _moveDir;
+    private bool _jump;
+
+    public bool Jump
+    {
+        set { _jump = value; }
+    }
 
     public bool CanMove
     {
@@ -19,10 +25,19 @@ public class PlayerMovement : MonoBehaviour {
         _canMove = true;
         _playerEntity = GetComponent<Entity>();
         _rigidBody = GetComponent<Rigidbody2D>();
-	}
+	} 
 
     public void Move(Vector2 moveDir)
     {
-        _rigidBody.MovePosition(_rigidBody.position + moveDir * _playerEntity.MovementSpeed * Time.deltaTime);
+        _rigidBody.velocity = new Vector2(moveDir.x * _playerEntity.MovementSpeed, _rigidBody.velocity.y);
+    }
+
+    public void Jump()
+    {
+        if (_jump)
+        {
+            _rigidBody.velocity = new Vector2(0, _playerEntity.JumpPower);
+            _jump = false;
+        }
     }
 }
