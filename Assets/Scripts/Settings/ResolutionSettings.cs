@@ -5,50 +5,56 @@ using UnityEngine.UI;
 
 public class ResolutionSettings : MonoBehaviour {
 
-    [SerializeField]private Dropdown _dropdown;
-    private bool _isFullScreen;
-    private int _resolutionWidth;
-    private int _resolutionHeight;
+    [SerializeField]private Dropdown _resolutionDropdown;
+    [SerializeField]private Toggle _fullScreenToggle;
+    private SaveLoadSettings _saveSettings = new SaveLoadSettings();
+
+    void Start()
+    {
+
+    }
 
     public void ChangeResolution()
     {
-        switch(_dropdown.value){
+        switch(_resolutionDropdown.value){
             
             case 0:
-                _resolutionWidth = 1024;
-                _resolutionHeight = 768;                
+                SettingsInformation.ResolutionWidth = 1024;
+                SettingsInformation.ResoltuionHeight = 768;
                 break;
             case 1:
-                _resolutionWidth = 1280;
-                _resolutionHeight = 720; 
+                SettingsInformation.ResolutionWidth = 1280;
+                SettingsInformation.ResoltuionHeight = 720;
                 break;
             case 2:
-                _resolutionWidth = 1366;
-                _resolutionHeight = 768;
+                SettingsInformation.ResolutionWidth = 1366;
+                SettingsInformation.ResoltuionHeight = 768;
                 break;
             case 3:
-                _resolutionWidth = 1600;
-                _resolutionHeight = 900;
+                SettingsInformation.ResolutionWidth = 1600;
+                SettingsInformation.ResoltuionHeight = 900;
                 break;
             case 4:
-                _resolutionWidth = 1920;
-                _resolutionHeight = 1080;
+                SettingsInformation.ResolutionWidth = 1920;
+                SettingsInformation.ResoltuionHeight = 1080;
                 break;
         }
-        Screen.SetResolution(_resolutionWidth, _resolutionHeight, _isFullScreen);
+        Screen.SetResolution(SettingsInformation.ResolutionWidth, SettingsInformation.ResoltuionHeight, SettingsInformation.IsFullScreen);
+        _saveSettings.SaveSettings();
     }
 
     public void ToggleFullScreen()
     {
-        if (_isFullScreen)
+
+        if (_fullScreenToggle.isOn)
         {
-            _isFullScreen = false;
+            SettingsInformation.IsFullScreen = true;
         }
         else
         {
-            _isFullScreen = true;
+            SettingsInformation.IsFullScreen = false;
         }
-
-        Screen.SetResolution(_resolutionWidth, _resolutionHeight, _isFullScreen);
+        Screen.SetResolution(SettingsInformation.ResolutionWidth, SettingsInformation.ResoltuionHeight, SettingsInformation.IsFullScreen);
+        _saveSettings.SaveSettings();
     }
 }

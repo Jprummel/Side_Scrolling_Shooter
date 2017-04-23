@@ -51,7 +51,7 @@ public class SaveLoadGame : MonoBehaviour {
         }
     }
 }
-
+[System.Serializable]
 public class SaveData
 {
     //Player progression

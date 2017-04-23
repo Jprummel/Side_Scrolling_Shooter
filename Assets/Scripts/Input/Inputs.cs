@@ -39,7 +39,7 @@ public class Inputs : MonoBehaviour {
 
         if (Input.GetButton(InputAxes.PC_ATTACK))
         {
-            Debug.Log("attack");
+            //Debug.Log("attack");
         }
     }
 
