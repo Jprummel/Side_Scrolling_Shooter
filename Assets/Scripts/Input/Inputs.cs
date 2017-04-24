@@ -5,11 +5,13 @@ using UnityEngine;
 public class Inputs : MonoBehaviour {
 
     private PlayerMovement _movement;
+    private PlayerShoot _shoot;
     private float _x;
     private Vector2 _moveDir;
 
 	void Awake () {
         _movement = GetComponent<PlayerMovement>();
+        _shoot = GetComponentInChildren<PlayerShoot>();
 	}	
 
 	void Update () {
@@ -39,7 +41,7 @@ public class Inputs : MonoBehaviour {
 
         if (Input.GetButton(InputAxes.PC_ATTACK))
         {
-            //Debug.Log("attack");
+            _shoot.Shoot();
         }
     }
 
