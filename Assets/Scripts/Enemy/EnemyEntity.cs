@@ -9,7 +9,7 @@ public class EnemyEntity : Entity {
 
     void Awake()
     {
-        _score = GameObject.FindGameObjectWithTag("ScoreKeeper").GetComponent<Scores>();
+        //_score = GameObject.FindGameObjectWithTag("ScoreKeeper").GetComponent<Scores>();
     }
 
     void Death()

@@ -4,20 +4,26 @@ using UnityEngine;
 
 public class PlayerInRadius : MonoBehaviour {
 
-    private bool _enemyInSight;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private bool _playerInSight;
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Debug.Log(_playerInSight);
 	}
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "Player")
+        {
+            _playerInSight = true;
+        }
+    }
 
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            _playerInSight = false;
+        }
     }
 }
