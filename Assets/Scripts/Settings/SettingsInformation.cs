@@ -10,4 +10,6 @@ public class SettingsInformation : MonoBehaviour {
     public static int ResoltuionHeight;
     public static bool IsFullScreen;
 
+    //Audio Settings
+
 }

@@ -10,6 +10,8 @@ public class Entity : MonoBehaviour {
     [SerializeField]protected int _maxLives;
     [SerializeField]protected int _maxHealth;
     [SerializeField]protected int _baseDamage;
+    protected SpriteRenderer _renderer;
+    protected ChangeColor _change;
     private int _currentLives;
     private int _currentDamage;
     private int _currentHealth;
@@ -44,6 +46,12 @@ public class Entity : MonoBehaviour {
         set { _baseDamage = value; }
     }
 
+    public SpriteRenderer Renderer
+    {
+        get { return _renderer; }
+        set { _renderer = value; }
+    }
+
     public int CurrentLives
     {
         get { return _currentLives; }
@@ -60,5 +68,11 @@ public class Entity : MonoBehaviour {
     {
         get { return _currentHealth; }
         set { _currentHealth = value; }
+    }
+
+    void Awake()
+    {
+        _renderer = GetComponent<SpriteRenderer>();
+        _change = GetComponent<ChangeColor>();
     }
 }
