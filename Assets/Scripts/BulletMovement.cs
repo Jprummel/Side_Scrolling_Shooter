@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class BulletMovement : MonoBehaviour {
 
-    private float _speed = 5;
+    private float _speed = 10;
     private Rigidbody2D _rgb2d;
 
 	// Use this for initialization
@@ -14,6 +14,6 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        _rgb2d.AddForce(transform.right * _speed);
+        _rgb2d.velocity = transform.right * _speed;
 	}
 }

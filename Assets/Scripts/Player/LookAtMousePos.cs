@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class LookAtMousePos : MonoBehaviour {
 
-    private SpriteRenderer _sprite;
+    [SerializeField]private GameObject[] _objectsToAim;
     private SpriteRenderer _bodySprite;
-    private float _yRotation;
-    private float min = /*-30*/-180;
-    private float max = /*55*/180;
 
     // Use this for initialization
     void Awake() {
-        _sprite = GetComponentInChildren<SpriteRenderer>();
-        _bodySprite = GetComponentInParent<SpriteRenderer>();
+        _bodySprite = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -23,27 +19,41 @@ public class LookAtMousePos : MonoBehaviour {
 
     void LookAtMouse()
     {
-        Vector3 mouseToScreenPos = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        float angle = Mathf.Atan2(mouseToScreenPos.y, mouseToScreenPos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, _yRotation, Mathf.Clamp(angle, min, max));
-        if (angle > 90 || angle < -90)
+        for (int i = 0; i < _objectsToAim.Length; i++)
         {
-            /*min = 135f;
-            max = 200f;*/
-            FlipSprite(true);
-        }
-        else
-        {
-            FlipSprite(false);
-            /*min = -30f;
-            max = 55f;*/
+            Vector3 mouseToScreenPos = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+            float angle = Mathf.Atan2(mouseToScreenPos.y, mouseToScreenPos.x) * Mathf.Rad2Deg;
+            _objectsToAim[i].transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(angle, -180, 180));
+
+            if (angle > 90 || angle < -90)
+            {
+
+                FlipSprite(true);
+            }
+            else
+            {
+                FlipSprite(false);
+            }
         }
     }
 
     void FlipSprite(bool dir)
     {
-        _sprite.flipX = dir;
-        _sprite.flipY = dir;
-        _bodySprite.flipX = dir;
+        Quaternion bodyRotation = transform.rotation;
+
+        for (int i = 0; i < _objectsToAim.Length; i++)
+        {
+            _objectsToAim[i].GetComponentInChildren<SpriteRenderer>().flipY = dir;
+        }
+
+        if (dir)
+        {
+            bodyRotation.y = 180;
+        }
+        else
+        {
+            bodyRotation.y = 0;
+        }
+        
     }
 }

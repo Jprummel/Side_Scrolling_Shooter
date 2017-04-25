@@ -8,5 +8,8 @@ public class Tags : MonoBehaviour {
     public const string ENEMY = "Enemy";
     public const string PROJECTILE = "Projectile";
     public const string SCOREKEEPER = "ScoreKeeper";
-
+    public const string OBJECT = "Object";
+    public const string PLAYERBULLET = "PlayerProjectile";
+    public const string ENEMYBULLET = "EnemyProjectile";
+    public const string OBSTACLE = "Obstacle";
 }
