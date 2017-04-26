@@ -6,9 +6,6 @@ public class EnemyMovement : MonoBehaviour {
 
     private Entity _enemyEntity;
 
-    [SerializeField]
-    private PlayerInRadius _playerinradius;
-
     private Rigidbody2D _rigidBody;
     private bool _switch;
 
@@ -22,9 +19,6 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (_playerinradius._PlayerInSight == false)
-        {
             float step = _enemyEntity.MovementSpeed * Time.deltaTime;
 
             if (transform.position == _startPos)
@@ -44,6 +38,5 @@ public class EnemyMovement : MonoBehaviour {
             {
                 transform.position = Vector3.MoveTowards(transform.position, _startPos, step);
             }
-        }
     }
 }

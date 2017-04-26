@@ -12,24 +12,18 @@ public class EnemyAttack : MonoBehaviour {
 
     [SerializeField]private float _waitForNextBullet;
 
-    private float _reloadTime = 10;
+    private float _reloadTime = 1;
 
     [SerializeField]private float timeLeft = 3.0f;
 
-    [SerializeField]
-    private PlayerInRadius _playerinradius;
-
     void Update()
     {
-        if (_playerinradius._PlayerInSight == true)
-        {
             timeLeft -= Time.deltaTime;
             if (timeLeft < 0)
             {
                 StartCoroutine(Shoot());
                 timeLeft = _reloadTime;
             }
-        }
     }
 
 

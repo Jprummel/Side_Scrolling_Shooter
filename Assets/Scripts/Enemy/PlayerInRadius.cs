@@ -30,6 +30,5 @@ public class PlayerInRadius : MonoBehaviour {
     public bool _PlayerInSight
     {
         get { return _playerInSight; }
-        set { _playerInSight = value; }
     }
 }

@@ -4,12 +4,8 @@ using UnityEngine;
 
 public class EnemyAim : MonoBehaviour
 {
-
     [SerializeField]
     private GameObject _player;
-
-    [SerializeField]
-    private PlayerInRadius _playerinradius;
 
     private SpriteRenderer _sprite;
     private SpriteRenderer _bodySprite;
@@ -32,8 +28,6 @@ public class EnemyAim : MonoBehaviour
 
     void LookAtTarget()
     {
-        if (_playerinradius._PlayerInSight == true)
-        {
             Vector3 playerPos = _player.transform.position;
             float angle = Mathf.Atan2(playerPos.y, playerPos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, _yRotation, Mathf.Clamp(angle, min, max));
@@ -50,7 +44,6 @@ public class EnemyAim : MonoBehaviour
                 /*min = -30f;
                 max = 55f;*/
             }
-        }
     }
 
     void FlipSprite(bool dir)
