@@ -16,13 +16,19 @@ public class EnemyAttack : MonoBehaviour {
 
     [SerializeField]private float timeLeft = 3.0f;
 
+    [SerializeField]
+    private PlayerInRadius _playerinradius;
+
     void Update()
     {
-        timeLeft -= Time.deltaTime;
-        if (timeLeft < 0)
+        if (_playerinradius._PlayerInSight == true)
         {
-            StartCoroutine(Shoot());
-            timeLeft = _reloadTime;
+            timeLeft -= Time.deltaTime;
+            if (timeLeft < 0)
+            {
+                StartCoroutine(Shoot());
+                timeLeft = _reloadTime;
+            }
         }
     }
 

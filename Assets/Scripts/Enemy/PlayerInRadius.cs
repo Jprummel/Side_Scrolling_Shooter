@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerInRadius : MonoBehaviour {
 
     private bool _playerInSight;
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         Debug.Log(_playerInSight);
 	}
 
@@ -25,5 +25,11 @@ public class PlayerInRadius : MonoBehaviour {
         {
             _playerInSight = false;
         }
+    }
+
+    public bool _PlayerInSight
+    {
+        get { return _playerInSight; }
+        set { _playerInSight = value; }
     }
 }
