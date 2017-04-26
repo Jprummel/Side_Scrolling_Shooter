@@ -17,7 +17,6 @@ public class ScreenShake : MonoBehaviour {
         {
             Vector2 shakePos = Random.insideUnitCircle * _intensity;
             transform.position = new Vector3(transform.position.x + shakePos.x, transform.position.y + shakePos.y, transform.position.z);
-            Debug.Log("Ay");
             _duration -= Time.deltaTime;
         }
 
