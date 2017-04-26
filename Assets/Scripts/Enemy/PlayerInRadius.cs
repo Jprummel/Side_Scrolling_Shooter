@@ -6,9 +6,21 @@ public class PlayerInRadius : MonoBehaviour {
 
     private bool _playerInSight;
 
+    [SerializeField]
+    private EnemyMovement _movement;
+
+    [SerializeField]
+    private EnemyAim _aim;
+    [SerializeField]
+    private EnemyAim _aim2;
+
+    [SerializeField]
+    private EnemyAttack _attack;
+
     // Update is called once per frame
     void Update () {
         Debug.Log(_playerInSight);
+        SetScripts();
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -27,8 +39,24 @@ public class PlayerInRadius : MonoBehaviour {
         }
     }
 
-    public bool _PlayerInSight
-    {
-        get { return _playerInSight; }
+    private void SetScripts() {
+        if (_playerInSight)
+        {
+            _movement.enabled = false;
+
+            _aim.enabled = true;
+            _aim2.enabled = true;
+
+            _attack.enabled = true;
+        }
+        else if (!_playerInSight)
+        {
+            _movement.enabled = true;
+
+            _aim.enabled = false;
+            _aim2.enabled = false;
+
+            _attack.enabled = false;
+        }
     }
 }
