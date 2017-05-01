@@ -9,13 +9,7 @@ public class LookAtMousePos : MonoBehaviour {
     private float _minClamp;
     private float _maxClamp;
     bool _flipped;
-
-<<<<<<< HEAD
-
-
-    // Use this for initialization
-=======
->>>>>>> origin/master
+    
     void Awake() {
         _bodySprite = GetComponent<SpriteRenderer>();
     }
