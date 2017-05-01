@@ -1,0 +1,153 @@
+
+Body.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Arm_L
+  rotate: false
+  xy: 275, 35
+  size: 34, 48
+  orig: 34, 48
+  offset: 0, 0
+  index: -1
+Arm_R
+  rotate: true
+  xy: 335, 46
+  size: 34, 46
+  orig: 34, 46
+  offset: 0, 0
+  index: -1
+Foot_L
+  rotate: false
+  xy: 383, 50
+  size: 48, 28
+  orig: 48, 28
+  offset: 0, 0
+  index: -1
+Foot_R
+  rotate: false
+  xy: 324, 16
+  size: 48, 28
+  orig: 48, 28
+  offset: 0, 0
+  index: -1
+Gun
+  rotate: false
+  xy: 150, 85
+  size: 126, 41
+  orig: 126, 41
+  offset: 0, 0
+  index: -1
+Gun_flash
+  rotate: false
+  xy: 2, 5
+  size: 146, 121
+  orig: 146, 121
+  offset: 0, 0
+  index: -1
+Gun_sparks
+  rotate: false
+  xy: 250, 7
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+Hand_L
+  rotate: true
+  xy: 422, 20
+  size: 28, 27
+  orig: 28, 27
+  offset: 0, 0
+  index: -1
+Hand_L_Fingers
+  rotate: false
+  xy: 199, 2
+  size: 28, 20
+  orig: 28, 20
+  offset: 0, 0
+  index: -1
+Hand_R
+  rotate: true
+  xy: 383, 12
+  size: 36, 37
+  orig: 36, 37
+  offset: 0, 0
+  index: -1
+Head
+  rotate: true
+  xy: 339, 82
+  size: 44, 53
+  orig: 44, 53
+  offset: 0, 0
+  index: -1
+Hip_L
+  rotate: false
+  xy: 240, 24
+  size: 33, 59
+  orig: 33, 59
+  offset: 0, 0
+  index: -1
+Hip_R
+  rotate: true
+  xy: 446, 94
+  size: 32, 59
+  orig: 32, 59
+  offset: 0, 0
+  index: -1
+Leg_L
+  rotate: true
+  xy: 278, 87
+  size: 39, 59
+  orig: 39, 59
+  offset: 0, 0
+  index: -1
+Leg_R
+  rotate: false
+  xy: 199, 24
+  size: 39, 59
+  orig: 39, 59
+  offset: 0, 0
+  index: -1
+Neck
+  rotate: false
+  xy: 229, 2
+  size: 19, 20
+  orig: 19, 20
+  offset: 0, 0
+  index: -1
+Pelvis
+  rotate: true
+  xy: 311, 48
+  size: 37, 22
+  orig: 37, 22
+  offset: 0, 0
+  index: -1
+Shoulder_L
+  rotate: true
+  xy: 446, 57
+  size: 35, 50
+  orig: 35, 50
+  offset: 0, 0
+  index: -1
+Shoulder_R
+  rotate: true
+  xy: 394, 80
+  size: 46, 50
+  orig: 46, 50
+  offset: 0, 0
+  index: -1
+Spine
+  rotate: true
+  xy: 275, 2
+  size: 31, 47
+  orig: 31, 47
+  offset: 0, 0
+  index: -1
+Torso
+  rotate: false
+  xy: 150, 20
+  size: 47, 63
+  orig: 47, 63
+  offset: 0, 0
+  index: -1

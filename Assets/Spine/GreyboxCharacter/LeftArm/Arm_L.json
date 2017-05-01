@@ -1,0 +1,46 @@
+{
+"skeleton": { "hash": "MJzCyGiDnP7hSmlBa3rhnVw5HYM", "spine": "3.5.51", "width": 72.64, "height": 90.74, "images": "./Greybox_Character/" },
+"bones": [
+	{ "name": "root", "x": -3.67, "y": 151.16, "color": "000000ff" },
+	{ "name": "Shoulder_L", "parent": "root", "length": 19.45, "rotation": -54.97, "x": -6.32, "y": -8.67, "color": "000000ff" },
+	{ "name": "Arm_L", "parent": "Shoulder_L", "length": 29.52, "rotation": 0.4, "x": 21.26, "y": -0.8, "color": "000000ff" },
+	{ "name": "Hand_L", "parent": "Arm_L", "length": 14.26, "rotation": -12.46, "x": 33.02, "y": -0.32, "color": "000000ff" }
+],
+"slots": [
+	{ "name": "Shoulder_L", "bone": "Shoulder_L", "attachment": "Shoulder_L" },
+	{ "name": "Arm_L", "bone": "Arm_L", "attachment": "Arm_L" },
+	{ "name": "Hand_L", "bone": "Hand_L", "attachment": "Hand_L" }
+],
+"skins": {
+	"default": {
+		"Arm_L": {
+			"Arm_L": { "x": 18.79, "y": -2.29, "rotation": 72.62, "width": 34, "height": 48 }
+		},
+		"Hand_L": {
+			"Hand_L": { "x": 7.69, "y": 0.81, "rotation": 85.07, "width": 28, "height": 27 }
+		},
+		"Shoulder_L": {
+			"Shoulder_L": { "x": 8.02, "y": -1.4, "rotation": 73.16, "width": 35, "height": 50 }
+		}
+	}
+},
+"animations": {
+	"Walk": {
+		"bones": {
+			"root": {
+				"translate": [
+					{ "time": 0, "x": 9.92, "y": -15.19 },
+					{ "time": 0.1667, "x": 11.54, "y": -16.27 },
+					{ "time": 0.3333, "x": 11.85, "y": -11.58 },
+					{ "time": 0.5, "x": 9.8, "y": -13.37 },
+					{ "time": 0.6667, "x": 10.26, "y": -15.14 },
+					{ "time": 0.8333, "x": 11.68, "y": -18.61 },
+					{ "time": 1, "x": 12.61, "y": -11.1 },
+					{ "time": 1.1667, "x": 9.97, "y": -14.01 },
+					{ "time": 1.3333, "x": 9.92, "y": -15.19 }
+				]
+			}
+		}
+	}
+}
+}
