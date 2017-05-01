@@ -19,25 +19,24 @@ public class EnemyMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+            float step = _enemyEntity.MovementSpeed * Time.deltaTime;
 
-        float step = _enemyEntity.MovementSpeed * Time.deltaTime;
+            if (transform.position == _startPos)
+            {
+                _switch = false;
+            }
+            else if (transform.position == _endPos)
+            {
+                _switch = true;
+            }
 
-        if (transform.position == _startPos)
-        {
-            _switch = false;
-        }
-        else if (transform.position == _endPos)
-        {
-            _switch = true;
-        }
-
-        if (!_switch)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, _endPos, step);
-        }
-        else if (_switch)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, _startPos, step);
-        }
+            if (!_switch)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _endPos, step);
+            }
+            else if (_switch)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _startPos, step);
+            }
     }
 }

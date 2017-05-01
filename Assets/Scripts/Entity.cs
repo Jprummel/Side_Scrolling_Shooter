@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour {
+public class Entity : MonoBehaviour, IDamageable {
 
     [SerializeField]protected string _name;
     [SerializeField]protected float _jumpPower;
@@ -70,9 +70,26 @@ public class Entity : MonoBehaviour {
         set { _currentHealth = value; }
     }
 
-    void Awake()
+    protected virtual void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
         _change = GetComponent<ChangeColor>();
+
+        _currentLives = _maxLives;
+        _currentHealth = _maxHealth;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _currentHealth -= damage;
+        if(_currentHealth <= 0)
+        {
+            _currentLives -= 1;
+            if(_currentLives <= 0)
+            {
+                //death animation
+                Destroy(this.gameObject);
+            }
+        }
     }
 }

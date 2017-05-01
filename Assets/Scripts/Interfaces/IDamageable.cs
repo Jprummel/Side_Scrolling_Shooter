@@ -5,5 +5,5 @@ using UnityEngine.EventSystems;
 
 public interface IDamageable : IEventSystemHandler {
 
-    void TakeDamage();
+    void TakeDamage(int damage);
 }

@@ -28,7 +28,8 @@ public class PlayerShoot : MonoBehaviour {
             GameObject bullet = Instantiate(_bullet);
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
-            bullet.gameObject.tag = Tags.PLAYER;
+            bullet.tag = Tags.PLAYER;
+            bullet.layer = LayerMask.NameToLayer("PlayerProjectile");
 
             _timer = _reloadTime;
             _reload = true;
