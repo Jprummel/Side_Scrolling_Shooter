@@ -7,6 +7,8 @@ public class LookAtMousePos : MonoBehaviour {
     [SerializeField]private GameObject[] _objectsToAim;
     private SpriteRenderer _bodySprite;
 
+
+
     // Use this for initialization
     void Awake() {
         _bodySprite = GetComponent<SpriteRenderer>();
