@@ -42,11 +42,15 @@ public class PlayerInRadius : MonoBehaviour {
         {
             _movement.enabled = false;
 
+            _aim.enabled = true;
+
             _attack.enabled = true;
         }
         else if (!_playerInSight)
         {
             _movement.enabled = true;
+
+            _aim.enabled = false;
 
             _attack.enabled = false;
         }
