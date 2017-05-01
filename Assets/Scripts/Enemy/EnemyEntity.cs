@@ -7,8 +7,9 @@ public class EnemyEntity : Entity {
     [SerializeField]private int _scoreToGive;
     private Scores _score;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         //_score = GameObject.FindGameObjectWithTag("ScoreKeeper").GetComponent<Scores>();
     }
 
@@ -16,5 +17,4 @@ public class EnemyEntity : Entity {
     {
         _score.AddScore(_scoreToGive,1);
     }
-
 }

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class BulletCollision : MonoBehaviour {
 
-    [SerializeField]private float _damage;
+    [SerializeField]private int _damage;
 
     void OnTriggerEnter2D(Collider2D coll)
     {
