@@ -11,8 +11,6 @@ public class PlayerInRadius : MonoBehaviour {
 
     [SerializeField]
     private EnemyAim _aim;
-    [SerializeField]
-    private EnemyAim _aim2;
 
     [SerializeField]
     private EnemyAttack _attack;
@@ -45,7 +43,6 @@ public class PlayerInRadius : MonoBehaviour {
             _movement.enabled = false;
 
             _aim.enabled = true;
-            _aim2.enabled = true;
 
             _attack.enabled = true;
         }
@@ -54,7 +51,6 @@ public class PlayerInRadius : MonoBehaviour {
             _movement.enabled = true;
 
             _aim.enabled = false;
-            _aim2.enabled = false;
 
             _attack.enabled = false;
         }
