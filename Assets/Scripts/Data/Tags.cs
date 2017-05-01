@@ -12,4 +12,7 @@ public class Tags : MonoBehaviour {
     public const string PLAYERBULLET = "PlayerProjectile";
     public const string ENEMYBULLET = "EnemyProjectile";
     public const string OBSTACLE = "Obstacle";
+
+    //UI Elements
+    public const string XPBAR = "XPBar";
 }

@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class PlayerLeveling : MonoBehaviour {
 
+    private int _xpAfterLevelUp;
+    public int XPAfterLevelUp
+    {
+        get { return _xpAfterLevelUp; }
+    }
+
     public void LevelUp()
     {
-        if (GameInformation.CurrentXP > GameInformation.RequiredXP)
-        {
-            GameInformation.CurrentXP -= GameInformation.RequiredXP;
-
-        }
-        else
-        {
-            GameInformation.CurrentXP = 0;
-        }
-
+        GameInformation.CurrentXP -= GameInformation.RequiredXP;
+        _xpAfterLevelUp = GameInformation.CurrentXP;
         GameInformation.PlayerLevel++;
         DetermineRequiredXP();
     }

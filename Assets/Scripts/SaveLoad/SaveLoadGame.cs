@@ -18,6 +18,7 @@ public class SaveLoadGame : MonoBehaviour {
 
         SaveData saveData = new SaveData();
 
+        saveData.IsNewSave          = GameInformation.IsNewSave;
         saveData.PlayerLevel        = GameInformation.PlayerLevel;
         saveData.currentXP          = GameInformation.CurrentXP;
         saveData.requiredXP         = GameInformation.RequiredXP;
@@ -39,6 +40,7 @@ public class SaveLoadGame : MonoBehaviour {
 
             SaveData saveData               = (SaveData)bf.Deserialize(file);
 
+            GameInformation.IsNewSave       = saveData.IsNewSave;
             GameInformation.PlayerLevel     = saveData.PlayerLevel;
             GameInformation.CurrentXP       = saveData.currentXP;
             GameInformation.RequiredXP      = saveData.requiredXP;
@@ -55,6 +57,7 @@ public class SaveLoadGame : MonoBehaviour {
 public class SaveData
 {
     //Player progression
+    public bool IsNewSave;
     public int PlayerLevel;
     public int currentXP;
     public int requiredXP;

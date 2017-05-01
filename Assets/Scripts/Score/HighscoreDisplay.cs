@@ -21,9 +21,4 @@ public class HighscoreDisplay : MonoBehaviour {
         }
         _highscoreDisplay.text = _highscore.ToString();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
