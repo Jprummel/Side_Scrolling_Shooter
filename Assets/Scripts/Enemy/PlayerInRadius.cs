@@ -3,29 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInRadius : MonoBehaviour {
-
-    private bool _playerInSight;
-
-    [SerializeField]
-    private EnemyMovement _movement;
-
-    [SerializeField]
-    private EnemyAim _aim;
-
-    [SerializeField]
-    private EnemyAttack _attack;
-
-    // Update is called once per frame
-    void Update () {
-        Debug.Log(_playerInSight);
-        SetScripts();
-	}
+    
+    [SerializeField]private EnemyMovement _movement;
+    [SerializeField]private EnemyAim _aim;
+    [SerializeField]private EnemyAttack _attack;
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
         {
-            _playerInSight = true;
+            EnableScripts(); //If player enters radius, enable aim and attack scripts & stop moving
         }
     }
 
@@ -33,26 +20,23 @@ public class PlayerInRadius : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            _playerInSight = false;
+            DisableScripts();//If player leaves radius ,  disable aim and attack scripts & continue moving
         }
     }
 
-    private void SetScripts() {
-        if (_playerInSight)
-        {
-            _movement.enabled = false;
+    void EnableScripts()
+    {
+        //Enables enemy scripts
+        _movement.enabled   = false;
+        _aim.enabled        = true;
+        _attack.enabled     = true;
+    }
 
-            _aim.enabled = true;
-
-            _attack.enabled = true;
-        }
-        else if (!_playerInSight)
-        {
-            _movement.enabled = true;
-
-            _aim.enabled = false;
-
-            _attack.enabled = false;
-        }
+    void DisableScripts()
+    {
+        //Disables enemy scripts
+        _movement.enabled   = true;
+        _aim.enabled        = false;
+        _attack.enabled     = false;
     }
 }

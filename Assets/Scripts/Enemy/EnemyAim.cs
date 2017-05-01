@@ -4,40 +4,39 @@ using UnityEngine;
 
 public class EnemyAim : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _player;
-
-    [SerializeField]
-    private GameObject[] _objectsToAim;
+    [SerializeField]private GameObject _player;
+    [SerializeField]private GameObject[] _objectsToAim;
+    private Vector3 _playerPos;
+    private Vector3 _difference;
+    private float _angle;
     private SpriteRenderer _bodySprite;
 
-    // Use this for initialization
     void Awake()
     {
         _bodySprite = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        LookAtMouse();
+        LookAtTarget();
     }
 
-    void LookAtMouse()
+    void LookAtTarget()
     {
+        _playerPos = _player.transform.position;
+        _difference = this.transform.position - _playerPos;
+        Debug.Log(_difference.x);
+        _angle = Mathf.Atan2(_playerPos.y, _playerPos.x) * Mathf.Rad2Deg;
+
         for (int i = 0; i < _objectsToAim.Length; i++)
         {
-            Vector3 playerPos = _player.transform.position;
-            float angle = Mathf.Atan2(playerPos.y, playerPos.x) * Mathf.Rad2Deg;
+                _objectsToAim[i].transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(_angle, -180, 180));
 
-                _objectsToAim[i].transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(angle, -180, 180));
-
-                if (angle > 90 || angle < -90)
+                if (_difference.x < 0)
                 {
-
                     FlipSprite(true);
                 }
-                else
+                else if (_difference.x > 0)
                 {
                     FlipSprite(false);
                 }
@@ -56,8 +55,7 @@ public class EnemyAim : MonoBehaviour
         if (dir)
         {
             bodyRotation.y = 180;
-        }
-        else
+        }else
         {
             bodyRotation.y = 0;
         }
