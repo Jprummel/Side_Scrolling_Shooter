@@ -27,10 +27,12 @@ public class Inputs : MonoBehaviour {
             {
                 _x = Input.GetAxis(InputAxes.PC_MOVEHORIZONTAL);
                 _movement.Move(new Vector2(_x,0));
+                _movement.IsMoving = true;
             }
             else
             {
                 _movement.Move(new Vector2(0, 0));
+                _movement.IsMoving = false;
             }
 
             if (Input.GetButtonDown(InputAxes.PC_JUMP))

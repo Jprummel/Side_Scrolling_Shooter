@@ -1,14 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Spine.Unity;
 
 public class PlayerMovement : MonoBehaviour {
 
     private Entity _playerEntity;
+    private SkeletonAnimation _spineAnimation; 
     private Rigidbody2D _rigidBody;
     private bool _canMove;
     private Vector2 _moveDir;
     private bool _jump = true;
+    private bool _isMoving = false;
+
+    public bool IsMoving
+    {
+        get { return _isMoving; }
+        set { _isMoving = value; }
+    }
 
     public bool CanJump
     {
@@ -25,11 +34,20 @@ public class PlayerMovement : MonoBehaviour {
         _canMove = true;
         _playerEntity = GetComponent<Entity>();
         _rigidBody = GetComponent<Rigidbody2D>();
+        _spineAnimation = GetComponent<SkeletonAnimation>();
 	} 
 
     public void Move(Vector2 moveDir)
     {
         _rigidBody.velocity = new Vector2(moveDir.x * _playerEntity.MovementSpeed, _rigidBody.velocity.y);
+        if (_isMoving)
+        {
+            _spineAnimation.AnimationName = "walk";
+        }
+        else
+        {
+            //_spineAnimation.AnimationName = "<None>";
+        }
     }
 
     public void Jump()

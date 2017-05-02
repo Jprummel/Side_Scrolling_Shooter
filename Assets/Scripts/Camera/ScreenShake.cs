@@ -19,11 +19,6 @@ public class ScreenShake : MonoBehaviour {
             transform.position = new Vector3(transform.position.x + shakePos.x, transform.position.y + shakePos.y, transform.position.z);
             _duration -= Time.deltaTime;
         }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Shake(0.1f, 1);
-        }
 	}
 
     public void Shake(float intensity, float duration)

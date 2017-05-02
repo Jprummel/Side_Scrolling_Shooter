@@ -8,8 +8,8 @@ public class BulletCollision : MonoBehaviour {
     [SerializeField]private int _damage;
 
     void OnTriggerEnter2D(Collider2D coll)
-    {
-        if(coll.gameObject.tag != this.tag)
+    {       //if player hits enemy                                               //if enemy hits player                                               //if bullet hits obstacle
+        if (coll.gameObject.tag == Tags.PLAYER & this.tag == Tags.ENEMYBULLET || coll.gameObject.tag == Tags.ENEMY & this.tag == Tags.PLAYERBULLET || coll.gameObject.tag == Tags.OBSTACLE)
         {
             if(coll.gameObject.tag != Tags.OBSTACLE)
             {

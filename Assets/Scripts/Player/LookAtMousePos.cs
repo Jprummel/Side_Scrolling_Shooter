@@ -27,27 +27,27 @@ public class LookAtMousePos : MonoBehaviour {
             Vector3 mouseToScreenPos    = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
             Quaternion objectRotation   = _objectsToAim[i].transform.rotation;
             float angle = Mathf.Atan2(mouseToScreenPos.y, mouseToScreenPos.x) * Mathf.Rad2Deg;
-            Debug.Log(angle);
+            //Debug.Log(angle);
             if (_flipped)
             {
-                _minClamp = -170;
-                _maxClamp = 170;
+                //_minClamp = -170;
+                //_maxClamp = 170;
             }
             else
             {
-                _minClamp = -70;
-                _maxClamp = 70;
+                //_minClamp = -70;
+                //_maxClamp = 70;
             }
             _objectsToAim[i].transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(angle, _minClamp, _maxClamp));
 
             if (angle > 90 || angle < -90)
             {  
-                FlipSprite(true);
+                //FlipSprite(true);
             }
-            /*else if( angle > -90 || angle < 90)
+            /*else if( angle > -90)
             {
                 FlipSprite(false);
-            }*/
+            }*/ 
         }
     }
 
