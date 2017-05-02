@@ -13,12 +13,12 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField]    private Vector3 _endPos;
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         _enemyEntity = GetComponent<Entity>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update() {
             float step = _enemyEntity.MovementSpeed * Time.deltaTime;
 
             if (transform.position == _startPos)
@@ -38,5 +38,11 @@ public class EnemyMovement : MonoBehaviour {
             {
                 transform.position = Vector3.MoveTowards(transform.position, _startPos, step);
             }
+    }
+
+    public bool _enemySwitch
+    {
+        get { return _switch; }
+        set { _switch = value; }
     }
 }
