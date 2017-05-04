@@ -11,7 +11,7 @@ public class Knockback : MonoBehaviour {
         _rgb2d = GetComponent<Rigidbody2D>();
 	}
 	
-    public void AddKnockback(float theForce, Vector3? source = null)
+    public void AddKnockback(float theForce, Vector2? dir = null, Vector3? source = null)
     {
         if (source != null)
         {
@@ -19,9 +19,13 @@ public class Knockback : MonoBehaviour {
             Vector2 clampedPos = forcePos.normalized;
             _rgb2d.AddForce(theForce * (clampedPos), ForceMode2D.Impulse);
         }
+        else if(dir != null)
+        {
+            _rgb2d.AddForce(theForce * dir.Value, ForceMode2D.Impulse);
+        }
         else
         {
-            _rgb2d.AddForce(theForce * Vector2.left, ForceMode2D.Impulse);
+            Debug.LogWarning("You must either give a direction or a source position");
         }
     }
 }
