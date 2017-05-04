@@ -6,6 +6,8 @@ public class EnemyFlipSprite : MonoBehaviour {
 
     [SerializeField]private EnemyMovement _enemyMovement;
 
+    [SerializeField]private float _enemySize;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,11 +23,11 @@ public class EnemyFlipSprite : MonoBehaviour {
     {
         if (_enemyMovement._enemySwitch == true)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.y);
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.y);
         }
     }
 }

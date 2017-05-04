@@ -29,7 +29,7 @@ public class EnemyAttack : MonoBehaviour {
 
     IEnumerator Shoot()
     {
-        Instantiate(_bullet, _shootPoint.transform.position, Quaternion.identity);
+        Instantiate(_bullet, _shootPoint.transform.position, _shootPoint.transform.rotation);
         yield return new WaitForSeconds(_waitForNextBullet);
     }
 }
