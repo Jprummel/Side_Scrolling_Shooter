@@ -10,11 +10,18 @@ public class PlayerShoot : MonoBehaviour {
 
     [SerializeField]private GameObject _bullet;
     [SerializeField]private float _reloadTime;
+<<<<<<< HEAD
 
     [SerializeField]private Transform _bullShellSpawnPoint;
     [SerializeField]private GameObject _bulletShell;
     
     private float _timer;
+=======
+    private float _reloadTimer;
+    private float _spreadTimer;
+    private float _spread;
+
+>>>>>>> 79278879e38a12b3cdc5e8dbcfcd03d70cfd6e3a
     private bool _reload;
 
 	void Start () {
@@ -26,14 +33,15 @@ public class PlayerShoot : MonoBehaviour {
 	void Update () {
         if (_reload)
         {
-            _timer -= Time.deltaTime;
+            _reloadTimer -= Time.deltaTime;
         }
 	}
 
     public void Shoot()
     {
-        if(_timer <= 0)
+        if(_reloadTimer <= 0)
         {
+<<<<<<< HEAD
             GameObject bullet = Instantiate(_bullet);
             GameObject bulletShell = Instantiate(_bulletShell);
             bullet.transform.position = transform.position;
@@ -46,7 +54,40 @@ public class PlayerShoot : MonoBehaviour {
             _screenShake.Shake(0.1f, 0.1f);
             _knockback.AddKnockback(10f);
             _timer = _reloadTime;
+=======
+            CreateBullet();
+            AddSpread();
+            GunFX();
+            //increase spread for each bullet shot in the last x seconds with x min/max value.
+
+            _reloadTimer = _reloadTime;
+>>>>>>> 79278879e38a12b3cdc5e8dbcfcd03d70cfd6e3a
             _reload = true;
         }
+    }
+
+    void CreateBullet(float? yOffset = 0)
+    {
+        GameObject bullet = Instantiate(_bullet);
+        bullet.transform.position = transform.position;
+
+        float randomOffset = Random.Range(-yOffset.Value, yOffset.Value);
+
+        bullet.transform.rotation = transform.rotation;
+        bullet.tag = Tags.PLAYERBULLET;
+        bullet.layer = LayerMask.NameToLayer("PlayerProjectile");
+    }
+
+    void GunFX()
+    {
+        _muzzleFlash.Emit(1);
+        _screenShake.Shake(0.1f, 0.1f);
+        _knockback.AddKnockback(10f, -transform.root.right);
+    }
+
+    void AddSpread()
+    {
+        _spread += 1;
+        //timer if x seconds passed and no shot was fired, reset spread value
     }
 }
