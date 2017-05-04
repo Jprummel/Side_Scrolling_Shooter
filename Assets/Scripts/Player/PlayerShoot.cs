@@ -38,19 +38,12 @@ public class PlayerShoot : MonoBehaviour {
     {
         if(_reloadTimer <= 0)
         {
-            GameObject bullet = Instantiate(_bullet);
-            GameObject bulletShell = Instantiate(_bulletShell);
-            bullet.transform.position = transform.position;
-            bullet.transform.rotation = transform.rotation;
-            bulletShell.transform.position = _bullShellSpawnPoint.transform.position;
-            bulletShell.tag = Tags.BULLETSHELL;
-            bullet.tag = Tags.PLAYERBULLET;
-            bullet.layer = LayerMask.NameToLayer("PlayerProjectile");
             _muzzleFlash.Emit(1);
             _screenShake.Shake(0.1f, 0.1f);
             _knockback.AddKnockback(10f);
             _timer = _reloadTime;
             CreateBullet();
+            CreateBulletShell();
             AddSpread();
             GunFX();
             //increase spread for each bullet shot in the last x seconds with x min/max value.
@@ -58,6 +51,12 @@ public class PlayerShoot : MonoBehaviour {
             _reloadTimer = _reloadTime;
             _reload = true;
         }
+    }
+
+    void CreateBulletShell()
+    {
+        GameObject bulletShell = Instantiate(_bulletShell);
+        bulletShell.transform.position = _bullShellSpawnPoint.transform.position;
     }
 
     void CreateBullet(float? yOffset = 0)
