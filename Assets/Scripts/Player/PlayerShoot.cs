@@ -43,11 +43,13 @@ public class PlayerShoot : MonoBehaviour {
             _knockback.AddKnockback(10f);
             _timer = _reloadTime;
             CreateBullet();
-            CreateBulletShell();
+            if (_bulletShell != null)
+            {
+                CreateBulletShell();
+            }
             AddSpread();
             GunFX();
             //increase spread for each bullet shot in the last x seconds with x min/max value.
-
             _reloadTimer = _reloadTime;
             _reload = true;
         }
