@@ -42,11 +42,11 @@ public class PlayerMovement : MonoBehaviour {
         _rigidBody.velocity = new Vector2(moveDir.x * _playerEntity.MovementSpeed, _rigidBody.velocity.y);
         if (_isMoving)
         {
-            //_spineAnimation.AnimationName = "walk";
+            _spineAnimation.AnimationName = "walk";
         }
         else
         {
-            //_spineAnimation.AnimationName = "<None>";
+            _spineAnimation.AnimationName = "idle";
         }
     }
 
