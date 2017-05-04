@@ -23,11 +23,11 @@ public class EnemyFlipSprite : MonoBehaviour {
     {
         if (_enemyMovement._enemySwitch == true)
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.y);
+            transform.rotation = Quaternion.Euler(0, 180, transform.rotation.y);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.y);
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.y);
         }
     }
 }

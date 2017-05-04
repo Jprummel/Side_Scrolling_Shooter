@@ -21,11 +21,11 @@ public class EnemyMovement : MonoBehaviour {
     void Update() {
             float step = _enemyEntity.MovementSpeed * Time.deltaTime;
 
-            if (transform.position == _startPos)
+            if (transform.position.x > _startPos.x || transform.position == _startPos)
             {
                 _switch = false;
             }
-            else if (transform.position == _endPos)
+            else if (transform.position.x < _endPos.x || transform.position == _endPos)
             {
                 _switch = true;
             }
