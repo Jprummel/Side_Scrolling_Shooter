@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyAim : MonoBehaviour
 {
-    [SerializeField]private GameObject _player;
-    [SerializeField]private GameObject[] _objectsToAim;
+    [SerializeField]private Transform _player;
+    [SerializeField]private List<Transform> _objectsToAim = new List<Transform>();
+    private Targeting _targeting;
     private Vector3 _playerPos;
     private Vector3 _difference;
     private float _angle;
@@ -13,22 +14,23 @@ public class EnemyAim : MonoBehaviour
 
     void Awake()
     {
+        _targeting = GetComponent<Targeting>();
         _bodySprite = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        LookAtTarget();
+        _targeting.LookAtTarget(_player, _objectsToAim);
+        //LookAtTarget();
     }
 
-    void LookAtTarget()
+    /*void LookAtTarget()
     {
         _playerPos = _player.transform.position;
         _difference = this.transform.position - _playerPos;
-        Debug.Log(_difference.x);
         _angle = Mathf.Atan2(_playerPos.y, _playerPos.x) * Mathf.Rad2Deg;
 
-        for (int i = 0; i < _objectsToAim.Length; i++)
+        for (int i = 0; i < _objectsToAim.Count; i++)
         {
                 _objectsToAim[i].transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(_angle, -180, 180));
 
@@ -47,7 +49,7 @@ public class EnemyAim : MonoBehaviour
     {
         Quaternion bodyRotation = transform.rotation;
 
-        for (int i = 0; i < _objectsToAim.Length; i++)
+        for (int i = 0; i < _objectsToAim.Count; i++)
         {
             _objectsToAim[i].GetComponentInChildren<SpriteRenderer>().flipY = dir;
         }
@@ -60,5 +62,5 @@ public class EnemyAim : MonoBehaviour
             bodyRotation.y = 0;
         }
 
-    }
+    }*/
 }
