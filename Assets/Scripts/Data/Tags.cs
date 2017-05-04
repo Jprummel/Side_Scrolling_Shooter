@@ -13,6 +13,8 @@ public class Tags : MonoBehaviour {
     public const string ENEMYBULLET = "EnemyProjectile";
     public const string OBSTACLE = "Obstacle";
     public const string BODYPART = "Bodypart";
+    public const string BULLETSHELLSPAWNPOINT = "BulletShellSpawnPoint";
+    public const string BULLETSHELL = "BulletShell";
 
     //UI Elements
     public const string XPBAR = "XPBar";

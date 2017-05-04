@@ -5,11 +5,16 @@ using UnityEngine;
 public class LookAtMousePos : MonoBehaviour {
 
     [SerializeField]private GameObject[] _objectsToAim;
+    [SerializeField]private List<SpriteRenderer> _sprites;
     private Quaternion _bodyRotation;
-    private float _minClamp = -360;
-    private float _maxClamp = 360;
+    [SerializeField]private float _minClamp;
+    [SerializeField]private float _maxClamp;
     bool _flipped;
     private Quaternion _turnedRotation = Quaternion.Euler(0, 180, 0);
+    //Vectors
+    private Vector3 _targetPosition;
+    private Vector3 _thisObjectPosition;
+    private Vector3 _positionDifference;
 
     void Awake()
     {
@@ -17,7 +22,33 @@ public class LookAtMousePos : MonoBehaviour {
     }
 
     void Update() {
-        LookAtMouse();
+        //LookAtMouse();
+        Aim();
+    }
+
+    void Aim()
+    {
+        _targetPosition = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        _thisObjectPosition = transform.position;
+        _positionDifference = _targetPosition - _thisObjectPosition;
+
+        for (int i = 0; i < _objectsToAim.Length; i++)
+        {
+            float angle = Mathf.Atan2(_targetPosition.y,_targetPosition.x) * Mathf.Rad2Deg;
+            _objectsToAim[i].transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(angle, _minClamp, _maxClamp));
+            if (_positionDifference.x > 0)
+            {
+                _flipped = true;
+                Flip(_flipped);
+                //_sprites[0].flipY = true;
+            }
+            else if (_positionDifference.x < 0)
+            {
+                _flipped = false;
+                Flip(_flipped);
+                //_sprites[0].flipY = false;
+            }
+        }
     }
 
     void LookAtMouse()
@@ -30,13 +61,13 @@ public class LookAtMousePos : MonoBehaviour {
             //Debug.Log(angle);
             if (_flipped)
             {
-                //_minClamp = -170;
-                //_maxClamp = 170;
+                _minClamp = -170;
+                _maxClamp = 170;
             }
             else
             {
-                //_minClamp = -70;
-                //_maxClamp = 70;
+                _minClamp = -70;
+                _maxClamp = 70;
             }
             _objectsToAim[i].transform.rotation = Quaternion.Euler(0, 0, Mathf.Clamp(angle, _minClamp, _maxClamp));
 
@@ -44,10 +75,23 @@ public class LookAtMousePos : MonoBehaviour {
             {  
                 //FlipSprite(true);
             }
-            /*else if( angle > -90)
+            else if( angle > -90)
             {
-                FlipSprite(false);
-            }*/ 
+                //FlipSprite(false);
+            } 
+        }
+    }
+
+    void Flip(bool flipped)
+    {
+        if (flipped)
+        {
+            _minClamp = -35;
+            _maxClamp = 60;
+        }
+        else
+        {
+
         }
     }
 

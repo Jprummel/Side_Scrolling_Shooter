@@ -10,6 +10,10 @@ public class PlayerShoot : MonoBehaviour {
 
     [SerializeField]private GameObject _bullet;
     [SerializeField]private float _reloadTime;
+
+    [SerializeField]private Transform _bullShellSpawnPoint;
+    [SerializeField]private GameObject _bulletShell;
+    
     private float _timer;
     private bool _reload;
 
@@ -19,7 +23,6 @@ public class PlayerShoot : MonoBehaviour {
         _muzzleFlash = GetComponent<ParticleSystem>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
         if (_reload)
         {
@@ -32,8 +35,11 @@ public class PlayerShoot : MonoBehaviour {
         if(_timer <= 0)
         {
             GameObject bullet = Instantiate(_bullet);
+            GameObject bulletShell = Instantiate(_bulletShell);
             bullet.transform.position = transform.position;
             bullet.transform.rotation = transform.rotation;
+            bulletShell.transform.position = _bullShellSpawnPoint.transform.position;
+            bulletShell.tag = Tags.BULLETSHELL;
             bullet.tag = Tags.PLAYERBULLET;
             bullet.layer = LayerMask.NameToLayer("PlayerProjectile");
             _muzzleFlash.Emit(1);
