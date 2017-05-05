@@ -9,13 +9,8 @@ public class CameraFollow : MonoBehaviour {
     [SerializeField]private float _smoothTimeY;
     [SerializeField]private Transform _player;
 
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-
+	void FixedUpdate () 
+    {
         float posX = Mathf.SmoothDamp(transform.position.x, _player.position.x, ref _velocity.x, _smoothTimeX);
         float posY = Mathf.SmoothDamp(transform.position.y, _player.position.y, ref _velocity.y, _smoothTimeY);
 

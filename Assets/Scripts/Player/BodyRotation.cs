@@ -31,14 +31,13 @@ public class BodyRotation : MonoBehaviour {
     void RotateBody()
     {
         if(_flipped){
-            _bodyRotation.y = 180;
-            Debug.Log(_bodyRotation.y + "Ay");
-            _body.rotation = _bodyRotation;
+            _bodyRotation.y = 180; //stores a rotation value
+            _body.rotation = _bodyRotation; //Flips body
         }
         else
         {
-            _bodyRotation.y = 0;
-            _body.rotation = _bodyRotation;
+            _bodyRotation.y = 0; //sets rotation value back to default
+            _body.rotation = _bodyRotation; //Flips body back to default rotation
         }
     }
 }

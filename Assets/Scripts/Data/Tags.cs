@@ -16,6 +16,7 @@ public class Tags : MonoBehaviour {
     public const string BULLETSHELLSPAWNPOINT = "BulletShellSpawnPoint";
     public const string BULLETSHELL = "BulletShell";
     public const string CURSOR = "Cursor";
+    public const string FADEROBJECT = "FaderObject";
 
     //UI Elements
     public const string XPBAR = "XPBar";
