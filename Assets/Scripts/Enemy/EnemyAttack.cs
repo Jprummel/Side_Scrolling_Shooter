@@ -18,7 +18,7 @@ public class EnemyAttack : MonoBehaviour {
 
     void Update()
     {
-            timeLeft -= 1;
+            timeLeft -= Time.deltaTime / _waitForNextBullet;
             if (timeLeft < 0)
             {
                 StartCoroutine(Shoot());
