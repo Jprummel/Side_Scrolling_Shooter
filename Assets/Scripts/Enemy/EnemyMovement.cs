@@ -6,7 +6,6 @@ public class EnemyMovement : MonoBehaviour {
 
     private Entity _enemyEntity;
 
-    private Rigidbody2D _rigidBody;
     private bool _switch;
 
     [SerializeField]    private Vector3 _startPos;
