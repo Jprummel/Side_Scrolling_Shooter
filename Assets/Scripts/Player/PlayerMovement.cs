@@ -6,7 +6,6 @@ using Spine.Unity;
 public class PlayerMovement : MonoBehaviour {
 
     private Entity _playerEntity;
-    private SkeletonAnimation _spineAnimation; 
     private Rigidbody2D _rigidBody;
     private bool _canMove;
     private Vector2 _moveDir;
@@ -34,20 +33,11 @@ public class PlayerMovement : MonoBehaviour {
         _canMove = true;
         _playerEntity = GetComponent<Entity>();
         _rigidBody = GetComponent<Rigidbody2D>();
-        _spineAnimation = GetComponent<SkeletonAnimation>();
 	} 
 
     public void Move(Vector2 moveDir)
     {
         _rigidBody.velocity = new Vector2(moveDir.x * _playerEntity.MovementSpeed, _rigidBody.velocity.y);
-        if (_isMoving)
-        {
-            //_spineAnimation.AnimationName = "walk";
-        }
-        else
-        {
-            //_spineAnimation.AnimationName = "idle";
-        }
     }
 
     public void Jump()
