@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
 
+    private SlowMotion _slowMotion;
     private ScreenShake _screenShake;
     private Knockback _knockback;
     private ParticleSystem _muzzleFlash;
@@ -25,6 +26,7 @@ public class PlayerShoot : MonoBehaviour {
         _screenShake = Camera.main.GetComponent<ScreenShake>();
         _knockback = transform.root.GetComponent<Knockback>();
         _muzzleFlash = GetComponent<ParticleSystem>();
+        _slowMotion = transform.root.GetComponent<SlowMotion>();
 	}
 	
 	void Update () {
@@ -38,6 +40,7 @@ public class PlayerShoot : MonoBehaviour {
     {
         if(_reloadTimer <= 0)
         {
+            StartCoroutine(_slowMotion.SlowMo(1f));
             _muzzleFlash.Emit(1);
             _screenShake.Shake(0.1f, 0.1f);
             _knockback.AddKnockback(10f);
