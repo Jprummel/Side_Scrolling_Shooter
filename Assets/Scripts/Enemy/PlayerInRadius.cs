@@ -8,6 +8,9 @@ public class PlayerInRadius : MonoBehaviour {
     [SerializeField]private EnemyAim _aim;
     [SerializeField]private EnemyAttack _attack;
 
+    [SerializeField]private BodyRotation _bodyrotation;
+    [SerializeField]private EnemyFlipSprite _movementFlip;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
@@ -27,16 +30,21 @@ public class PlayerInRadius : MonoBehaviour {
     void EnableScripts()
     {
         //Enables enemy scripts
+        _movementFlip.enabled = false;
         _movement.enabled   = false;
         _aim.enabled        = true;
         _attack.enabled     = true;
+        _bodyrotation.enabled = true;
+
     }
 
     void DisableScripts()
     {
         //Disables enemy scripts
         _movement.enabled   = true;
+        _movementFlip.enabled = true;
         _aim.enabled        = false;
         _attack.enabled     = false;
+        _bodyrotation.enabled = false;
     }
 }
