@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BodyRotation : MonoBehaviour {
 
+    [SerializeField]private float _rotatedAngle;
+    [SerializeField]private float _defaultAngle;
     private Transform _body;
     private Quaternion _bodyRotation;
     private bool _flipped;
@@ -31,12 +33,12 @@ public class BodyRotation : MonoBehaviour {
     void RotateBody()
     {
         if(_flipped){
-            _bodyRotation.y = 180; //stores a rotation value
+            _bodyRotation.y = _rotatedAngle; //stores a rotation value
             _body.rotation = _bodyRotation; //Flips body
         }
         else
         {
-            _bodyRotation.y = 0; //sets rotation value back to default
+            _bodyRotation.y = _defaultAngle; //sets rotation value back to default
             _body.rotation = _bodyRotation; //Flips body back to default rotation
         }
     }
