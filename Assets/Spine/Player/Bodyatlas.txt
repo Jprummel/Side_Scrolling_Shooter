@@ -1,0 +1,76 @@
+
+Body.png
+size: 512,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Foot_L
+  rotate: false
+  xy: 360, 34
+  size: 48, 28
+  orig: 48, 28
+  offset: 0, 0
+  index: -1
+Foot_R
+  rotate: false
+  xy: 410, 34
+  size: 48, 28
+  orig: 48, 28
+  offset: 0, 0
+  index: -1
+Hip_L
+  rotate: true
+  xy: 189, 29
+  size: 33, 59
+  orig: 33, 59
+  offset: 0, 0
+  index: -1
+Hip_R
+  rotate: true
+  xy: 250, 30
+  size: 32, 59
+  orig: 32, 59
+  offset: 0, 0
+  index: -1
+Leg_L
+  rotate: true
+  xy: 67, 23
+  size: 39, 59
+  orig: 39, 59
+  offset: 0, 0
+  index: -1
+Leg_R
+  rotate: true
+  xy: 128, 23
+  size: 39, 59
+  orig: 39, 59
+  offset: 0, 0
+  index: -1
+Neck
+  rotate: true
+  xy: 67, 2
+  size: 19, 20
+  orig: 19, 20
+  offset: 0, 0
+  index: -1
+Pelvis
+  rotate: false
+  xy: 460, 40
+  size: 37, 22
+  orig: 37, 22
+  offset: 0, 0
+  index: -1
+Spine
+  rotate: true
+  xy: 311, 31
+  size: 31, 47
+  orig: 31, 47
+  offset: 0, 0
+  index: -1
+Torso
+  rotate: true
+  xy: 2, 15
+  size: 47, 63
+  orig: 47, 63
+  offset: 0, 0
+  index: -1
