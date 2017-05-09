@@ -23,7 +23,7 @@ public class Knockback : MonoBehaviour {
         {
             _rgb2d.AddForce(theForce * dir.Value, ForceMode2D.Impulse);
         }
-        else
+        else if(dir == null & source == null)
         {
             Debug.LogWarning("You must either give a direction or a source position");
         }
