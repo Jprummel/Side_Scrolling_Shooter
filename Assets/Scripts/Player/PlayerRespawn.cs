@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour {
 
-    private Transform _checkpoint;
-    public Transform Checkpoint;
+    //private Transform _respawnPoint;
+    public Transform RespawnPoint { get; set; }
 
     public void Respawn()
     {
-        this.transform.position = Checkpoint.position;
+        this.transform.position = RespawnPoint.position;
     }
 }
